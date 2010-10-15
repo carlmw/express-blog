@@ -3,4 +3,4 @@
 	url = http://github.com/LearnBoost/mongoose.git
 [submodule "vendor/validate"]
 	path = vendor/validate
-	url = http://github.com/carlmw/sweetnr-blog.git
+	url = http://github.com/carlmw/validate-js.git
