@@ -1,6 +1,6 @@
 console.log('SWEETNR> INIT DRAGONS...');
 
-const DB_CONNECT_STRING = 'mongodb://localhost/db',
+const DB_CONNECT_STRING = 'mongodb://localhost/blog',
 	  BLOG_DETAILS = {
 	  	title:      'My Awesome blog',
 		tagline:    'Epic awesomesauce',
@@ -80,4 +80,9 @@ app.set('NotFound', NotFound);
 require('sys').inherits(NotFound, Error);
 
 // Export for spark
-module.exports = app;
+if(typeof module != 'undefined'){
+	module.exports = app;
+}else{
+	app.listen(3000);
+}
+	
