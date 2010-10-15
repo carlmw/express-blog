@@ -259,7 +259,7 @@ figcaption{
 }
 
 /* FORMS */
-input[type=text], input[type=search], input[type=email], input[type=url], textarea, select{
+input[type=text], input[type=password], input[type=search], input[type=email], input[type=url], textarea, select{
 	text-shadow:2px 2px 0 rgba(0,0,0,0.4);
 	background-color:#172220;
 	color:#fff;
@@ -286,6 +286,7 @@ textarea{
 label{
 	display:inline-block;
 	cursor:pointer;
+	padding-right:10px;
 }
 label span{
 	display:block;
