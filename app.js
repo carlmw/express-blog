@@ -79,10 +79,6 @@ app.set('NotFound', NotFound);
 
 require('sys').inherits(NotFound, Error);
 
-// Export for spark
-if(typeof module != 'undefined'){
-	module.exports = app;
-}else{
-	app.listen(3000);
-}
+// Listen
+app.listen(3000);
 	
