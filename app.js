@@ -12,7 +12,7 @@ const DB_CONNECT_STRING = 'mongodb://localhost/db',
 
 var connect = require('connect'),
 	express = require('express'),
-	mongoose = require('mongoose').Mongoose,
+	mongoose = require('./vendor/mongoose/mongoose').Mongoose,
 	app = express.createServer(
 		connect.staticProvider(__dirname + '/public'),
 		connect.bodyDecoder(),

@@ -1,6 +1,4 @@
 exports.postController = function(app){
-	var db = app.set('db');
-	
 	// GET single post
 	app.get('/post/:url', function(req, res, next){
 		app.set('db').model('Article').find({url: req.params.url}).one(function(article){
