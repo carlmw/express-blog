@@ -1,0 +1,60 @@
+- var body = this.req.body, flash = this.req.flash(), errors = (typeof errors != 'undefined') ? errors : [];
+div#content
+  h1 #{article.title}
+  div.entry-body #{article.body}
+  footer this post was last updated 
+    time.updated(datetime=article.updated_date, pubdate)=article.updated_since+' '
+      span.value #{article.updated_date} 
+    != partial('tags', article.tags)
+    - if(article.comments_disabled)
+      p
+        small Comments disabled
+    - else if(!article.comments_open)
+      p
+        small Comments closed
+  - if(!article.comments_disabled)
+    section.comments.hfeed
+      h1 Comments
+      - if(article.published_comments.length === 0)
+        p.no-comments 
+          em No comments yet
+      - else
+        div!= partial('comments', article.published_comments)
+      - if(article.comments_open)
+        section#comment-section
+          h1 Add a comment
+          - if(flash.saved)
+            div#flash(role='alert')
+              em #{flash.saved[0]}
+          form#comment-form(method='post', action=this.req.url+'#comment-section')
+            div.author
+              p
+                label 
+                  span Name 
+                    strong Required 
+                  - if(errors.indexOf('author') != -1)
+                    em.error Name, Rank and Serial number please
+                  input(type='text', name='author', value=body?body.author:'', required)
+              p
+                label 
+                  span Email 
+                    strong Required 
+                    em (this won't be shared, I promise.)
+                  - if(errors.indexOf('email') != -1)
+                    em.error You must enter a valid email address
+                  input(type='email',  name='email', value=body?body.email:'', required)
+              p
+                label 
+                  span Website
+                  - if(errors.indexOf('url') != -1)
+                    em.error That address is invalid
+                  input(type='url', name='url', value=body?body.url:'')
+            p.comment
+              label
+                span Comment 
+                  strong Required 
+                - if(errors.indexOf('comment') != -1)
+                  em.error You must enter at least 8 characters.
+                textarea(name='comment', rows='10', cols='30', required)= body?body.comment:''
+            p
+              button(type='submit') Post comment

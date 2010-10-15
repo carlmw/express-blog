@@ -1,0 +1,20 @@
+!!! xml
+feed(xmlns='http://www.w3.org/2005/Atom')
+  title Relative Precision 
+  subtitle A blog of web geekery by Carl Whittaker 
+  id http://relativeprecision.com/feed
+  updated= articles[0].updated_date
+  link(href='http://relativeprecision.com/feed', rel='self')
+  link(href='http://relativeprecision.com')
+  author
+    name Carl Whittaker
+    email carl@relativeprecision.com
+  - each article in articles
+    entry
+      id http://relativeprecision.com/post/#{article.url}
+      title= article.title
+      link(href='http://relativeprecision.com/post/'+article.url)
+      updated= article.updated_date
+      summary(type='html')
+        :cdata
+          #{article.excerpt}

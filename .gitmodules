@@ -1,0 +1,3 @@
+[submodule "vendor/validate"]
+	path = vendor/validate
+	url = git@github.com:carlmw/validate-js.git

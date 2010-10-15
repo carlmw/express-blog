@@ -1,0 +1,11 @@
+article.hentry
+  h1.entry-title
+    a(href='/post/'+articles.url, rel='bookmark', title='Permament link to '+articles.title) #{articles.title}
+  div.entry-summary!=articles.excerpt
+  footer
+    small
+      |this post was last updated 
+      time.updated(datetime=articles.updated_date, pubdate)=articles.updated_since+' '
+        span.value #{articles.updated_date}
+      | 
+      != partial('tags', articles.tags)

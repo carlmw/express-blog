@@ -1,0 +1,7 @@
+node 0.2.2
+module senchalabs connect 0.2.6
+module visionmedia express 1.0.0rc4
+module visionmedia jade 0.5.3
+module christkv node-mongodb-native V0.8.1
+module LearnBoost mongoose 0.0.3
+module senchalabs spark

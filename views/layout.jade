@@ -1,0 +1,35 @@
+- var blog = this.app.set('blog-details');
+!!! 5
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title=blog.title
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='alternate', href='/feed', type='application/atom+xml')
+    link(rel='profile', href='http://gmpg.org/xfn/11')
+    link(rel='profile', href='http://ufs.cc/x/hcard')
+    link(rel='profile', href='http://ufs.cc/x/hatom')
+    link(rel='profile', href='http://ufs.cc/x/rel-tag')
+    link(rel='shortcut icon', href='/icons/favicon.png', type='image/png')
+    link(rel='apple-touch-icon', href='/icons/apple-touch-icon-114.png')
+    meta(name='viewport', content='width=device-width; initial-scale=1.0; maximum-scale=1.0;')
+  body
+    div.skip.down
+      a(href='#content') Skip to content
+    #container
+      header#masthead.vcard(role='banner')
+        - if ('/' == this.req.url){
+        h1#site-name #{blog.title}
+        span#tag-line #{blog.tagline}
+        - }else{
+        div#site-name
+          a(href='/') #{blog.title}
+        div#tag-line #{blog.tagline}
+        - }
+      != body
+      div.top.skip
+        p
+          a(href='#container')
+            span.label Back to top
+      footer#page-footer(role='contentinfo')
+        p#copyright &copy; 2010 #{blog.name}.

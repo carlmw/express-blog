@@ -1,0 +1,57 @@
+nav
+  a(href='..') New
+  | 
+  a(href='/auth') Logout
+#content
+  h1 Editing '#{article.title}'
+  form(method='post', action=this.req.url)
+    p
+      label
+        span Title
+        input(type='text', name='title', value=article.title)
+    p
+      label
+        span Excerpt
+        textarea(name='excerpt', cols=60, rows=5) #{article.excerpt}
+    p
+      label
+        span Body
+        textarea(name='body', cols=60, rows=20) 
+          = article.body.replace(/\&/g, '&amp;')
+    p
+      label
+        span Tags
+        input(type='text', name='tags', value=article.tag_string)
+    p
+      label
+        span Categories
+        input(type='text', name='categories', value=article.category_string)
+    p
+      label
+        span Comments Open
+        input(type='checkbox', name='comments_open', value='1', checked=article.comments_open)
+    p
+      label
+        span Comments Disabled
+        input(type='checkbox', value='1', name='comments_disabled', checked=article.comments_disabled)
+    p
+      label
+        span Published
+        input(type='checkbox', name='published', value='1', checked=article.published)
+    p
+      label
+        span Delete
+        input(type='checkbox', name='remove')
+    p
+      button(type='submit') Save
+    section.comments
+      h1 Comments
+      ul
+        - each comment, k in article.comments
+          li
+            strong=comment.author
+            textarea(name='comments['+k+'][comment]')=comment.comment
+            label Published
+              input(type='checkbox', name='comments['+k+'][published]', value='1', checked=comment.published)
+            label Delete
+              input(type='checkbox', name='comments['+k+'][remove]', value='1')

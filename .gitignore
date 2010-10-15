@@ -1,0 +1,6 @@
+*~
+*.diff
+*.patch
+._*
+.DS_Store
+config.js

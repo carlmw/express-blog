@@ -1,0 +1,19 @@
+- if(comments.published)
+  article.hentry
+    header 
+      img(src = gravatar(comments.email), class = 'photo')
+      | 
+      small
+        time.updated(datetime=comments.created.toISO8601(), pubdate=true)
+          = comments.created.timeSince() + ' '
+          span.value
+            = comments.created.toISO8601()
+          |  
+        - if(comments.url)
+          a(href=comments.url)
+            = comments.author
+        - else
+          = comments.author
+        |  said
+    div.entry-summary
+      #{comments.comment}

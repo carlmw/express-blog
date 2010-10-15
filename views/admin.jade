@@ -1,0 +1,49 @@
+nav
+  a(href='/auth') Logout 
+#content
+  h1 Articles
+  section
+    h1 New post
+    form(method='post', action='/manage/new')
+      p
+        label
+          span Title
+          input(type='text', name='title')
+      p
+        label
+          span Excerpt
+          textarea(name='excerpt', cols=60, rows=5)
+      p
+        label
+          span Body
+          textarea(name='body', cols=60, rows=20)
+      p
+        label
+          span Tags
+          input(type='text', name='tags')
+      p
+        label
+          span Categories
+          input(type='text', name='categories')
+      p
+        label
+          span Comments Open
+          input(type='checkbox', value='1', name='comments_open', checked)
+      p
+        label
+          span Comments Disabled
+          input(type='checkbox', value='1', name='comments_disabled')
+      p
+        label
+          span Published
+          input(type='checkbox', value='1', name='published')
+      p
+        button(type='submit') Save
+  section
+    h1 Existing posts
+    ul
+      - each article in articles
+        li #{article.title} 
+          a(href='/manage/edit/'+article.url) Edit
+
+      
