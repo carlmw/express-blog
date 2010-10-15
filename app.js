@@ -2,12 +2,12 @@ console.log('SWEETNR> INIT DRAGONS...');
 
 const DB_CONNECT_STRING = 'mongodb://localhost/db',
 	  BLOG_DETAILS = {
-	  	title: 		'My Awesome blog',
-		tagline: 	'Epic awesomesauce',
-		name: 		'Bender Bending Rodriguez',
+	  	title:      'My Awesome blog',
+		tagline:    'Epic awesomesauce',
+		name:       'Bender Bending Rodriguez',
 		item_limit: 10,
-		username: 'admin',
-		password: require('crypto').createHash('md5').update('changeme').toString('ascii') // SHOULD be replaced with a real hash
+		username:   'admin',
+		password:   require('crypto').createHash('md5').update('changeme').toString('ascii') // SHOULD be replaced with a real hash
 	  };
 
 var connect = require('connect'),
