@@ -1,8 +1,8 @@
 const SECONDS_IN_MINUTE = 60, 
 	  SECONDS_IN_HOUR = 3600,
-	  SECONDS_IN_DAY = 86400
+	  SECONDS_IN_DAY = 86400,
 	  SECONDS_IN_MONTH = 2629743,
-	  SECONDS_IN_YEAR = 31556926,
+	  SECONDS_IN_YEAR = 31556926;
 
 Date.prototype.toISO8601 = function(){
 	var d = this.getUTCDate()+'',
